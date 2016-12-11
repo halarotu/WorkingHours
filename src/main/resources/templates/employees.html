@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head lang="en">
+        <meta charset="UTF-8" />
+        <title>Working Hours</title>
+    </head>
+    <body>
+    	<h1>Employees</h1>
+    	
+    	
+    	<ol>
+            <li th:each="employee : ${employees}">
+                <a th:href="@{/employees/{employeeId}(employeeId=${employee.id})}" th:text="${employee.name}">employee name</a>
+            </li>
+        </ol>
+    	
+    	
+    	<div>
+            Add new employee:<br/>
+            <form action="/employees" method="POST">
+                Name: <input type="text" name="name" id="name"/>
+                Company level: <input type="text" name="level" id="level"/><br/>
+                <input type="submit"/>
+            </form>
+        </div>
+    	
+
+    </body>
+</html>
