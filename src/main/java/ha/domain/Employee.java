@@ -8,7 +8,9 @@ public class Employee extends AbstractPersistable<Long> {
 	
 	private String name;
 	
-	private int companyLevel;
+	private String password;
+	
+	private int authorityLevel;
 	
 	private Company company;
 	
@@ -20,12 +22,20 @@ public class Employee extends AbstractPersistable<Long> {
 		this.name = name;
 	}
 	
-	public int getCompanyLevel() {
-		return this.companyLevel;
+	public String getPassword() {
+		return this.password;
 	}
 	
-	public void setCompanyLevel(int level) {
-		this.companyLevel = level;
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	
+	public int getAuthorityLevel() {
+		return this.authorityLevel;
+	}
+	
+	public void setAuthorityLevel(int level) {
+		this.authorityLevel = level;
 	}
 	
 	public Company getCompany() {

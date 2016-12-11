@@ -30,7 +30,7 @@ public class EmployeeController {
     public String addNewEmployee(@RequestParam String name, @RequestParam String level) {
         Employee e = new Employee();
         e.setName(name);
-        e.setCompanyLevel(Integer.parseInt(level));
+        e.setAuthorityLevel(Integer.parseInt(level));
         
         this.emplRepo.save(e);
 		
