@@ -16,11 +16,13 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
+
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.view;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(SpringRunner.class)
@@ -38,7 +40,7 @@ public class ControllerTest {
     }
     
 	@Test
-	public void employeeControllerTest() throws Exception {
+	public void employeesControllerTest() throws Exception {
 		
 		// basic get employees page ok? 
 		mockMvc.perform(get("/employees"))
@@ -60,6 +62,28 @@ public class ControllerTest {
                 .andReturn();
         List<Employee> employees = new ArrayList<>((Collection<Employee>) result.getModelAndView().getModel().get("employees"));
         assertTrue("New employee was added.", employees.size() == 1);
+	}
+	
+	@Test
+	public void singleEmployeeTest() throws Exception {
+		String name = "Teuvo Tyolainen";
+        String companyLevel = "1";
+        mockMvc.perform(post("/employees").param("name", name).param("level", companyLevel))
+                .andExpect(status().is3xxRedirection())
+                .andReturn();
+        MvcResult result = mockMvc.perform(get("/employees"))
+                .andExpect(status().is2xxSuccessful())
+                .andReturn();
+        List<Employee> employees = new ArrayList<>((Collection<Employee>) result.getModelAndView().getModel().get("employees"));
+        Long id = employees.get(0).getId();
+        assertNotNull("Employee id is not null", id);
+        
+        // path /employees/{id} exists?
+        mockMvc.perform(get("/employees/" + id))
+                .andExpect(status().is2xxSuccessful())
+                .andReturn();
+        
+        
 	}
 
 }

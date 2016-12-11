@@ -2,9 +2,11 @@ package ha.controller;
 
 import ha.domain.Employee;
 import ha.repository.EmployeeRepository;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -33,6 +35,13 @@ public class EmployeeController {
         this.emplRepo.save(e);
 		
 		return "redirect:/employees";
+    }
+	
+	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String getEmployee(Model model, @PathVariable Long id) {
+        model.addAttribute("employee", emplRepo.findOne(id));
+		
+		return "employee";
     }
 	
 }
