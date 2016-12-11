@@ -11,6 +11,8 @@ public class Company extends AbstractPersistable<Long> {
 	
 	private ArrayList<Employee> employees;
 	
+	private ArrayList<Project> projects;
+	
 	public String getName() {
 		return this.name;
 	}
@@ -26,5 +28,13 @@ public class Company extends AbstractPersistable<Long> {
 	public void setEmployees(ArrayList<Employee> list) {
 		this.employees = list;
 	}
-
+	
+	public ArrayList<Project> getProjects() {
+		return this.projects;
+	}
+	
+	public void setProjects(ArrayList<Project> list) {
+		this.projects = list;
+	}
+	
 }
