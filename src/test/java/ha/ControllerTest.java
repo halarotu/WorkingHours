@@ -51,7 +51,7 @@ public class ControllerTest {
 		
 		// adding new employee ok?
         String name = "Teuvo Tyolainen";
-        String companyLevel = "1";
+        String companyLevel = "USER";
         mockMvc.perform(post("/employees").param("name", name).param("level", companyLevel))
                 .andExpect(status().is3xxRedirection())
                 .andReturn();
@@ -61,7 +61,7 @@ public class ControllerTest {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
         List<Employee> employees = new ArrayList<>((Collection<Employee>) result.getModelAndView().getModel().get("employees"));
-        assertTrue("New employee was added.", employees.size() == 1);
+        assertTrue("New employee was added.", employees.size() == 2);
 	}
 	
 	@Test

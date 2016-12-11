@@ -4,6 +4,7 @@ import ha.domain.Employee;
 import ha.repository.EmployeeRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -18,6 +19,9 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeRepository emplRepo;
 	
+	@Autowired
+    private PasswordEncoder passwordEncoder;
+	
 	@RequestMapping(method = RequestMethod.GET)
     public String getEmployees(Model model) {
         
@@ -31,6 +35,7 @@ public class EmployeeController {
         Employee e = new Employee();
         e.setName(name);
         e.setAuthorityLevel(level);
+        e.setPassword(passwordEncoder.encode(name));
         
         this.emplRepo.save(e);
 		
