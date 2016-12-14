@@ -1,7 +1,7 @@
 package ha.controller;
 
 import ha.domain.Employee;
-import ha.repository.EmployeeRepository;
+//import ha.repository.EmployeeRepository;
 
 import javax.annotation.PostConstruct;
 
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("*")
 public class DefaultController {
 	
-	@Autowired
-	private EmployeeRepository emplRepo;
+	//@Autowired
+	//private EmployeeRepository emplRepo;
 	
 	@Autowired
     private PasswordEncoder passwordEncoder;
@@ -28,7 +28,7 @@ public class DefaultController {
 		return "index";
     }
 	
-	@PostConstruct
+	/*@PostConstruct
     public void init() {
         if (emplRepo.findByName("SuperADMIN") != null) {
             return;
@@ -40,6 +40,6 @@ public class DefaultController {
         superAdmin.setPassword(passwordEncoder.encode("SuperADMIN"));
         
         emplRepo.save(superAdmin);
-    }
+    }*/
 	
 }
