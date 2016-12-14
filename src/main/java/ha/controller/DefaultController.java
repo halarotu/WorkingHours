@@ -29,7 +29,6 @@ public class DefaultController {
     }
 	
 	@PostConstruct
-	@Profile("dev")
     public void init() {
         if (emplRepo.findByName("SuperADMIN") != null) {
             return;
