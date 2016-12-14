@@ -17,7 +17,7 @@ import org.springframework.context.annotation.Profile;
 // !! used code from http://web-palvelinohjelmointi.github.io/osa3.html !!
 
 @Configuration
-@Profile("production")
+//@Profile("production")
 public class ProductionProfile {
 	
 	/*@Bean
