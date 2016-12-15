@@ -1,6 +1,8 @@
 package ha.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
@@ -12,6 +14,7 @@ public class Employee extends AbstractPersistable<Long> {
 	
 	private String authorityLevel;
 	
+	@ManyToOne
 	private Company company;
 	
 	public String getName() {

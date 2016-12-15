@@ -1,7 +1,10 @@
 package ha.domain;
 
 import java.util.ArrayList;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
 @Entity
@@ -9,8 +12,10 @@ public class Company extends AbstractPersistable<Long> {
 	
 	private String name;
 	
+	@OneToMany
 	private ArrayList<Employee> employees;
 	
+	@OneToMany
 	private ArrayList<Project> projects;
 	
 	public String getName() {
