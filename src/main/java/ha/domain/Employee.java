@@ -12,7 +12,7 @@ public class Employee extends AbstractPersistable<Long> {
 	
 	private String authorityLevel;
 	
-	private Company company;
+	//private Company company;
 	
 	public String getName() {
 		return this.name;
@@ -38,12 +38,12 @@ public class Employee extends AbstractPersistable<Long> {
 		this.authorityLevel = level;
 	}
 	
-	public Company getCompany() {
+	/*public Company getCompany() {
 		return this.company;
 	}
 	
 	public void setCompany(Company company) {
 		this.company = company;
-	}
+	}*/
 	
 }
