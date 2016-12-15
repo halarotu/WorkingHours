@@ -61,7 +61,7 @@ public class ControllerTest {
                 .andExpect(status().is2xxSuccessful())
                 .andReturn();
         List<Employee> employees = new ArrayList<>((Collection<Employee>) result.getModelAndView().getModel().get("employees"));
-        assertTrue("New employee was added.", employees.size() == 2);
+        assertTrue("New employee was added.", employees.size() == 1);
 	}
 	
 	@Test
