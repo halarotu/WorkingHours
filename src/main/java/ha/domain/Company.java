@@ -1,6 +1,7 @@
 package ha.domain;
 
-import java.util.ArrayList;
+
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
@@ -13,10 +14,10 @@ public class Company extends AbstractPersistable<Long> {
 	private String name;
 	
 	@OneToMany
-	private ArrayList<Employee> employees;
+	private List<Employee> employees;
 	
 	@OneToMany
-	private ArrayList<Project> projects;
+	private List<Project> projects;
 	
 	public String getName() {
 		return this.name;
@@ -26,19 +27,19 @@ public class Company extends AbstractPersistable<Long> {
 		this.name = name;
 	}
 	
-	public ArrayList<Employee> getEmployees() {
+	public List<Employee> getEmployees() {
 		return this.employees;
 	}
 	
-	public void setEmployees(ArrayList<Employee> list) {
+	public void setEmployees(List<Employee> list) {
 		this.employees = list;
 	}
 	
-	public ArrayList<Project> getProjects() {
+	public List<Project> getProjects() {
 		return this.projects;
 	}
 	
-	public void setProjects(ArrayList<Project> list) {
+	public void setProjects(List<Project> list) {
 		this.projects = list;
 	}
 	
