@@ -2,7 +2,7 @@ package ha.domain;
 
 
 import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 
 import org.springframework.data.jpa.domain.AbstractPersistable;
 
@@ -11,7 +11,7 @@ public class Project extends AbstractPersistable<Long> {
 	
 	private String name;
 	
-	@OneToMany
+	@ManyToOne
 	private Company owner;
 	
 	public String getName() {
