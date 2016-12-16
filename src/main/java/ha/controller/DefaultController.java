@@ -28,9 +28,9 @@ public class DefaultController {
 		return "index";
     }
 	
-	@PostConstruct
+	/*@PostConstruct
     public void init() {
-        /*if (emplRepo.findByName("SuperADMIN") != null) {
+        if (emplRepo.findByName("SuperADMIN") != null) {
             return;
         }
            
@@ -39,7 +39,7 @@ public class DefaultController {
         superAdmin.setAuthorityLevel("SuperADMIN");
         superAdmin.setPassword(passwordEncoder.encode("SuperADMIN"));
         
-        emplRepo.save(superAdmin);*/
-    }
+        emplRepo.save(superAdmin);
+    }*/
 	
 }
