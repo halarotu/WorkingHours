@@ -20,7 +20,7 @@ import org.springframework.context.annotation.Profile;
 @Profile("production")
 public class ProductionProfile {
 	
-	/*@Bean
+	@Bean
     public BasicDataSource dataSource() throws URISyntaxException {
 		String dbUrl = System.getenv("JDBC_DATABASE_URL");
         String username = System.getenv("JDBC_DATABASE_USERNAME");
@@ -32,13 +32,13 @@ public class ProductionProfile {
         basicDataSource.setPassword(password);
 
         return basicDataSource;
-    }*/
+    }
 	
-	@Bean
+	/*@Bean
     @Primary
     @ConfigurationProperties(prefix = "spring.datasource")
     public DataSource dataSource() {
         return DataSourceBuilder.create().build();
-    }
+    }*/
 	
 }
